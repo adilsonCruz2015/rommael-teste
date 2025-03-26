@@ -1,0 +1,61 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+
+// html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.paginator-container {
+  display: flex;
+  justify-content: center; /* Alinha o paginator ao centro */
+  margin-top: 5px; /* Ajuste o espaçamento superior conforme necessário */
+  margin-bottom: 10px;
+}
+
+.paginator-container .mat-mdc-paginator {
+  font-size: 12px; /* Reduz o tamanho da fonte */
+}
+
+.paginator-container .mat-mdc-paginator-page-size {
+  display: flex;
+  align-items: center;
+  white-space: nowrap; /* Impede a quebra de linha */
+}
+
+.paginator-container .mat-mdc-paginator-page-size-label {
+  margin-right: 8px; /* Adiciona um pequeno espaço entre o texto e o seletor */
+}
+
+.paginator-container .mat-mdc-paginator-page-size-select {
+  width: auto;
+  min-width: 70px; /* Ajuste conforme necessário */
+}
+
+.mat-mdc-row:nth-child(even) {
+  background-color: #f1f1f1; /* Set the background color for even rows */
+}
+
+.mat-mdc-row:nth-child(odd) {
+  background-color: #ffffff; /* Set the background color for odd rows */
+}
+
+.main-body {
+  padding-top: 20px;
+  margin: 0 auto;
+  max-width: 1248px;
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.mat-mdc-form-field-infix {
+  width: 10px !important;
+}
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

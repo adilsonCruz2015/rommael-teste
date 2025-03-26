@@ -1,0 +1,50 @@
+<div class="main-body">
+  <mat-toolbar color="primary">
+    <span>Cadastro de Clientes</span>
+    <span class="spacer"></span>
+    <div class="demo-button-container">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="openAddEditEmpForm(null)"
+      >
+        Novo Cliente
+      </button>
+    </div>
+  </mat-toolbar>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Filtro</mat-label>
+    <input matInput [formControl]="queryField" />
+  </mat-form-field>
+  @if (searchResults$ | async; as customerPage) {
+  <div class="mat-elevation-z8">
+    <div class="paginator-container">
+      <mat-paginator
+        [pageSizeOptions]="[5, 10, 15, 50]"
+        showFirstLastButtons
+        [length]="customerPage.totalRecords"
+        [pageIndex]="pageIndex"
+        [pageSize]="pageSize"
+        (page)="refresh($event)"
+      ></mat-paginator>
+    </div>
+    <app-customer-list
+      [customers]="customerPage.data ?? []"
+      (edit)="openAddEditEmpForm($event)"
+      (remove)="remove($event)"
+    >
+    </app-customer-list>
+    <div class="paginator-container">
+      <mat-paginator
+        [pageSizeOptions]="[5, 10, 15, 50]"
+        showFirstLastButtons
+        [length]="customerPage.totalRecords"
+        [pageIndex]="pageIndex"
+        [pageSize]="pageSize"
+        (page)="refresh($event)"
+      ></mat-paginator>
+    </div>
+  </div>
+  }
+</div>
