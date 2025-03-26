@@ -1,0 +1,137 @@
+<div mat-dialog-title>
+  {{ data ? "Atualizar Cliente" : "Novo Cliente" }}
+</div>
+<form [formGroup]="customerForm" (ngSubmit)="onFormSubmit()">
+  <div mat-dialog-content>
+    <mat-form-field appearance="outline" class="mat-18">
+      <mat-label>Id</mat-label>
+      <input
+        matInput
+        type="text"
+        placeholder="Id"
+        formControlName="id"
+        readonly="true"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="mat-48">
+      <mat-label>Nome/Razão Social</mat-label>
+      <input
+        matInput
+        placeholder="Nome/Razão Social"
+        formControlName="name"
+        #name
+      />
+      <mat-hint align="end">{{ name.value.length }} / 60</mat-hint>
+      @if (customerForm.get('name')?.invalid) {
+      <mat-error>{{ getErrorMessage("name") }}</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="mat-20">
+      <mat-label>CPF/CNPJ</mat-label>
+      <input
+        matInput
+        type="text"
+        placeholder="CPF/CNPJ"
+        formControlName="document"
+        mask="000.000.000-00||00.000.000/0000-00"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="mat-18">
+      <mat-label>Data de Nascimento</mat-label>
+      <input
+        matInput
+        type="text"
+        placeholder="Data de Nascimento"
+        formControlName="birthDate"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="mat-20">
+      <mat-label>Telefone</mat-label>
+      <input
+        matInput
+        type="text"
+        placeholder="Data de Nascimento"
+        formControlName="phone"
+        mask="(00) 0 0000-0000"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="mat-36">
+      <mat-label>E-mail</mat-label>
+      <input
+        matInput
+        type="text"
+        placeholder="E-mail"
+        formControlName="email"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="mat-18">
+      <mat-label>Cep</mat-label>
+      <input
+        matInput
+        type="text"
+        placeholder="Cep"
+        formControlName="zipCode"
+        mask="00000-000"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="mat-48">
+      <mat-label>Endereço</mat-label>
+      <input
+        matInput
+        type="text"
+        placeholder="Endereço"
+        formControlName="street"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="mat-18">
+      <mat-label>Número</mat-label>
+      <input
+        matInput
+        type="text"
+        placeholder="Número"
+        formControlName="number"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="mat-18">
+      <mat-label>Bairro</mat-label>
+      <input
+        matInput
+        type="text"
+        placeholder="Bairro"
+        formControlName="neighborhood"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="mat-18">
+      <mat-label>Cidade</mat-label>
+      <input matInput type="text" placeholder="Cidade" formControlName="city" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="mat-18">
+      <mat-label>Estado</mat-label>
+      <input
+        matInput
+        type="text"
+        placeholder="Estado"
+        formControlName="state"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="mat-18">
+      <mat-label>Inscrição Estadual</mat-label>
+      <input
+        matInput
+        type="text"
+        placeholder="Inscrição Estadual"
+        formControlName="stateRegistration"
+      />
+    </mat-form-field>
+    <mat-checkbox formControlName="taxExempt">Insento</mat-checkbox>
+  </div>
+
+  <div mat-dialog-actions class="action">
+    <button mat-raised-button [mat-dialog-close]="false">Fechar</button>
+    <button mat-raised-button type="submit">
+      {{ data ? "Update" : "Salvar" }}
+    </button>
+  </div>
+</form>

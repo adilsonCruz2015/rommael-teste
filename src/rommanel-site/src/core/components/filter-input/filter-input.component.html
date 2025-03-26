@@ -1,0 +1,13 @@
+<mat-form-field appearance="outline">
+  <mat-label>{{ label }}</mat-label>
+  <input matInput [formControl]="queryField" (input)="onInputChange()" />
+  <button
+    mat-icon-button
+    matSuffix
+    *ngIf="queryField.value"
+    (click)="clearFilter()"
+    aria-label="Limpar"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>

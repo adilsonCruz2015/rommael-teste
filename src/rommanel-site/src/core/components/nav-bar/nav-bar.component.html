@@ -1,0 +1,19 @@
+<mat-toolbar>
+  <a [routerLink]="['/']">
+    <span>Rommamel</span>
+  </a>
+  <span class="space-menu"></span>
+
+  <span class="example-spacer"></span>
+  <button
+    mat-icon-button
+    class="material-icons-outlined"
+    aria-label="Example icon-button with share icon"
+    matTooltip="Sair"
+    routerLink="/authentication"
+  >
+    <mat-icon>logout</mat-icon>
+  </button>
+
+  <div style="font-size: 15px">Olá {{ name() }}</div>
+</mat-toolbar>

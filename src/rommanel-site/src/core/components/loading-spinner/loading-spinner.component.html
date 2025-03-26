@@ -1,0 +1,13 @@
+@if (this.loader.loading | async) {
+<div class="spinner-container">
+  <div class="row">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>
+} @if (this.loader.noRecordsFound | async) {
+<div class="no-records-container">
+  <div class="no-records-card">
+    <p>Registro não encontrado</p>
+  </div>
+</div>
+}

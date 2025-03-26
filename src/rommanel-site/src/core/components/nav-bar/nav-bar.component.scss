@@ -1,0 +1,17 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+a {
+  text-decoration: none; /* Remove o sublinhado */
+  color: inherit;        /* Mantém a cor do texto atual (herdado do pai) */
+  cursor: pointer;       /* Exibe o cursor de clique */
+}
+
+a:hover {
+  color: inherit;        /* Garante que a cor não mude ao passar o mouse */
+}
+
+.space-menu {
+  margin-left: 10px;
+}

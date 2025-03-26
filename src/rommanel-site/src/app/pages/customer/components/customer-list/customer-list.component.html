@@ -1,0 +1,36 @@
+<table
+  mat-table
+  [dataSource]="dataSource"
+  matSort
+  matSortDisableClear
+  matSortDirection="desc"
+  matSortActive="brokerId"
+>
+  <!-- Corretor -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+    <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+  </ng-container>
+  <!-- Corretor -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Nome</th>
+    <td mat-cell *matCellDef="let row">{{ row.name }}</td>
+  </ng-container>
+  <!-- Código Corretor SIS -->
+
+  <!-- Ações -->
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef>Ações</th>
+    <td mat-cell *matCellDef="let row">
+      <button mat-icon-button color="primary" (click)="onEdit(row)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="onRemove(row)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
