@@ -16,7 +16,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowLocalhost", builder =>
-        builder.WithOrigins("http://localhost:4201") // Permite requisições de http://localhost:4201
+        builder.WithOrigins("http://localhost:4200") // Permite requisições de http://localhost:4201
                .AllowAnyMethod() // Permite todos os métodos (GET, POST, etc.)
                .AllowAnyHeader()); // Permite todos os cabeçalhos
 });

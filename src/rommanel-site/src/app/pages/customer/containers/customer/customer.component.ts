@@ -72,7 +72,7 @@ export class CustomerComponent implements OnInit {
       ).subscribe();
   }
 
-  refresh(pageEvent: PageEvent = { length: 0, pageIndex: 1, pageSize: environment.itensPerPage })
+  refresh(pageEvent: PageEvent = { length: 0, pageIndex: 0, pageSize: environment.itensPerPage })
     : Observable<ResultModel<Customer>> {
     const searchTerm = this.queryField.value?.trim() || '';
 
@@ -86,20 +86,19 @@ export class CustomerComponent implements OnInit {
         this.pageSize = pageEvent.pageSize;
       }),
       catchError(() => {
-        return of({ broker: [], totalRecords: 0 } as ResultModel<Customer>);
+        return of({ customer: [], totalRecords: 0 } as ResultModel<Customer>);
       })
     );
-
     return this.searchResults$;
   }
 
-  openAddEditEmpForm(broker: Customer | null) {
+  openAddEditEmpForm(customer: Customer | null) {
     const dialogRef = this._dialog.open(CustomerAddEditComponent, {
       width: '80%',  // Ajuste a largura para 80% da tela
       height: '650px', // Ajuste a altura fixa para 600px, por exemplo
       maxWidth: '90vw', // Defina um limite máximo para a largura
       maxHeight: '78vh', // Defina um limite máximo para a altura
-      data: broker
+      data: customer
     });
     this.updateList(dialogRef);
   }

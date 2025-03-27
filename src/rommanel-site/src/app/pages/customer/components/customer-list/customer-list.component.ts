@@ -24,7 +24,6 @@ export class CustomerListComponent implements OnInit {
 
   @Input() set customers(value: Customer[]) {
     this._customers = value;
-    console.log(this._customers);
     if (this.dataSource) {
       this.dataSource.data = this._customers;
     }
@@ -38,7 +37,7 @@ export class CustomerListComponent implements OnInit {
   @Output() edit: EventEmitter<Customer> = new EventEmitter(false);
   @Output() remove: EventEmitter<Customer> = new EventEmitter(false);
 
-  displayedColumns: string[] = ['id', 'name', 'action'];
+  displayedColumns: string[] = ['id', 'name', 'document', 'birthDate', 'email', 'action'];
   dataSource: MatTableDataSource<Customer> = new MatTableDataSource();
 
   ngOnInit(): void {
